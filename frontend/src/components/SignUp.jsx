@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const SignupPage = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getWalletAddress = async () => {
@@ -45,7 +45,7 @@ const SignupPage = () => {
       await tx.wait();
 
       alert("Signup successful!");
-      navigate('/dashboard');
+      navigate("/dashboard");
     } catch (error) {
       console.error("Signup error:", error);
       alert("Signup failed. Please try again.");
@@ -84,6 +84,17 @@ const SignupPage = () => {
             </span>
           </p>
         )}
+
+        {/* Already have an account */}
+        <p className="text-gray-300 mt-4">
+          Already have an account?{" "}
+          <span
+            className="text-blue-400 cursor-pointer hover:underline"
+            onClick={() => navigate("/login")}
+          >
+            Log in
+          </span>
+        </p>
       </div>
     </div>
   );
